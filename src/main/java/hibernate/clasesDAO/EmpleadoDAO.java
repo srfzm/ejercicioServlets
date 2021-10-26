@@ -94,4 +94,10 @@ public class EmpleadoDAO {
 
 		return emp;
 	}
+	
+	public static ArrayList<Empleado> getLista(Session s) {
+		String hql= "from Empleado";
+		Query query = s.createQuery(hql);
+		return (ArrayList<Empleado>) query.list();
+	}
 }
