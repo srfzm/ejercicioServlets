@@ -1,5 +1,7 @@
 package hibernate.clasesDAO;
 
+import java.util.ArrayList;
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -32,5 +34,11 @@ public class DepartamentoDAO {
 		String hql= "SELECT max(codigo) from Departamento";
 		Query query = s.createQuery(hql);
 		return (int)query.getSingleResult()+1;
+	}
+	
+	public static ArrayList<Departamento> getLista(Session s) {
+		String hql= "from Departamento";
+		Query query = s.createQuery(hql);
+		return (ArrayList<Departamento>) query.list();
 	}
 }
