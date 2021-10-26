@@ -35,6 +35,7 @@ public class MostrarDepartamentosServ extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doGet de MostrarDepartamentosServ");
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		Session s = HibernateUtil.getSessionFactory().openSession();
@@ -48,12 +49,13 @@ public class MostrarDepartamentosServ extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doPost de MostrarDepartamentosServ");
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	
 	private PrintWriter mostrarTabla(PrintWriter out, ArrayList<Departamento> d) {
-		
+		HibernateUtil.logger.info("Mostrando tabla de departamentos");
 		out.println("<html>");
 		out.println("<title>Servlet de pruebas :)</title>");
 		out.println("<body>");

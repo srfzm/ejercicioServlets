@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hibernate.principal.HibernateUtil;
+
 /**
  * Servlet implementation class MostrarDatosServ
  */
@@ -26,15 +28,21 @@ public class MostrarDatosServ extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doGet de MostrarDatosServ");
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String tabla = request.getParameter("table");
 		if(tabla!=null)
 		{
 			if(tabla.equals("empleado"))
+			{	HibernateUtil.logger.info("Redirigiendo a MostrarEmpleadosServ");
 				request.getRequestDispatcher("/MostrarEmpleados").forward(request, response);
+			}
 			else if(tabla.equals("departamento"))
+			{
+				HibernateUtil.logger.info("Redirigiendo a MostrarDepartamentosServ");
 				request.getRequestDispatcher("/MostrarDepartamentos").forward(request, response);
+			}
 		}
 			
 	}
@@ -43,6 +51,7 @@ public class MostrarDatosServ extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doPost de MostrarDatosServ");
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		String tabla = request.getParameter("table");

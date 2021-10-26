@@ -37,6 +37,7 @@ public class MostrarEmpleadosServ extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doGet de MostrarEmpleadosServ");
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		Session s = HibernateUtil.getSessionFactory().openSession();
@@ -50,12 +51,13 @@ public class MostrarEmpleadosServ extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HibernateUtil.logger.info("Accedido al metodo doPost de MostrarEmpleadosServ");
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	
 	private PrintWriter mostrarTabla(PrintWriter out, ArrayList<Empleado> e) {
-		
+		HibernateUtil.logger.info("Mostrando tabla de empleados");
 		out.println("<html>");
 		out.println("<title>Servlet de pruebas :)</title>");
 		out.println("<body>");
